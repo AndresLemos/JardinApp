@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+               template="/WEB-INF/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <ui:define name="content">
+         <form class="formulario" jsf:id="createDepartamentoform">
+           
+           
+            <input
+                type="text"
+                jsf="idDepartamento"
+                required="true"
+                jsf:value="#{departamentosController.selectedDepartamento.idDepartamento}"/>
+            
+            <input
+                type="text"
+                jsf="nombreDepartamento"
+                required="true"
+                jsf:value="#{departamentosController.selectedDepartamento.nombreDepartamento}"/>
+            
+          
+            <input class="medium success button" type="submit"
+                   value="Guardar"
+                   jsf:actionListener="#{departamentosController.create()}" jsf:action="List"/>
+        </form>
+    </ui:define>
+
+</ui:composition>

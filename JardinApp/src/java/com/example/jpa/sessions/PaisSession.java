@@ -5,7 +5,7 @@
  */
 package com.example.jpa.sessions;
 
-import com.example.jpa.entities.Departamentos;
+import com.example.jpa.entities.Pais;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,29 +17,28 @@ import javax.persistence.criteria.CriteriaQuery;
  * @author adsi2
  */
 @Stateless
-public class DepartamentosSession {
+public class PaisSession {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     @PersistenceContext
      private EntityManager entityManager;
     
-    public void create(Departamentos departamentos){
-        entityManager.persist(departamentos);
+    public void create(Pais pais){
+        entityManager.persist(pais);
         
     }
-    public List<Departamentos> findAll(){
+    public List<Pais> findAll(){
         CriteriaQuery cq = entityManager.getCriteriaBuilder().createQuery();
-        cq.select(cq.from(Departamentos.class));
+        cq.select(cq.from(Pais.class));
         return entityManager.createQuery(cq).getResultList();
+        //return entityManager.createNamedQuery("Pais.findAll").getResultList();
     }
     
-    public void Edit(Departamentos departamentos){
-        entityManager.merge(departamentos);
+    public void Edit(Pais pais){
+        entityManager.merge(pais);
     }
-    public void remove(Departamentos departamentos){
-        entityManager.remove(departamentos);
+    public void remove(Pais pais){
+        entityManager.remove(pais);
     }
-
-   
 }
