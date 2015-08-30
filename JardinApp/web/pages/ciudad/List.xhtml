@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/template.xhtml"
+                 xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        
+        <button type="button"  
+                jsf:outcome="create">
+            Nuevo Ciudad
+        </button>
+    
+        <br></br>
+         <h:dataTable id="ciudadTable"
+                      value="#{ciudadsController.itemsCiudad}"
+                     var="ciudad">
+            <h:column>
+                <f:facet name="header">
+                    Id Departamento
+                </f:facet>    
+                <h:outputText value="#{ciudad.idCiudad}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    Departamento
+                </f:facet>
+                <h:outputText value="#{ciudad.nombreCiudad}" />
+            </h:column>
+            
+        </h:dataTable> 
+        
+     
+    </ui:define>
+ 
+</ui:composition>
+
+

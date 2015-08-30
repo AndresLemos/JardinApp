@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+               template="/WEB-INF/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <ui:define name="content">
+         <form class="formulario" jsf:id="createCiudadform">
+           
+           
+            <input
+                type="text"
+                jsf="idCiudad"
+                required="true"
+                jsf:value="#{ciudadController.selectedCiudad.idCiudad}"/>
+            
+            <input
+                type="text"
+                jsf="nombreCiudad"
+                required="true"
+                jsf:value="#{ciudadController.selectedCiudad.nombreCiudad}"/>
+            
+          
+            <input class="medium success button" type="submit"
+                   value="Guardar"
+                   jsf:actionListener="#{ciudadController.create()}" jsf:action="List"/>
+        </form>
+    </ui:define>
+
+</ui:composition>
