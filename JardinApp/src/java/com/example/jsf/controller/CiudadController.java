@@ -16,6 +16,7 @@ import javax.faces.bean.ViewScoped;
  *
  * @author PC 4
  */
+
 @ManagedBean
 @ViewScoped
 public class CiudadController implements Serializable {

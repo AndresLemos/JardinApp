@@ -17,6 +17,7 @@ import javax.persistence.criteria.CriteriaQuery;
  *
  * @author PC 4
  */
+
 @Stateless
 public class CiudadSession {
     @PersistenceContext
