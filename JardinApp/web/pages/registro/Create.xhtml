@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <body>
+
+        <ui:composition template="/WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h2 class="Work-title">Registrarse</h2>
+
+            <h:form class="Work-form">
+                <input type="text" placeholder="Nombre" class="Work-formInput"/>
+                <input type="text" placeholder="Apellido" class="Work-formInput"/>
+                <input type="email" placeholder="Email" class="Work-formInput"/>
+                <input type="text" placeholder="Contraseña" class="Work-formInput"/>
+                <button type="submit" class="Work-button">Enviar</button>
+                <button type="button" jsf:action="index" class="Work-button">Cancelar</button>
+            </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -7,21 +7,21 @@
                 xmlns:jsf="http://xmlns.jcp.org/jsf">
 
     <ui:define name="content">
-         <form class="formulario" jsf:id="createPaisform">
-           
-           
+         <form class="formulario" jsf:id="createPaisform">  
+            <label>ID País</label> 
             <input
                 type="text"
+                placeholder="ID País"
                 jsf="idPais"
                 required="true"
                 jsf:value="#{paisController.selectedPais.idPais}"/>
-            
+            <label>Nombre País</label> 
             <input
                 type="text"
+                placeholder="Nombre País"
                 jsf="nombrePais"
                 required="true"
-                jsf:value="#{paisController.selectedPais.nombrePais}"/>
-            
+                jsf:value="#{paisController.selectedPais.nombrePais}"/>            
           
             <input class="medium success button" type="submit"
                    value="Guardar"

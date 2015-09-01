@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,19 +17,19 @@ import javax.persistence.Table;
 public class Roles implements Serializable {
     @Id
     @Column(name = "id_rol")
-    private Integer idRol;
+    private int idRol;
     
     @Column(name="nombre_rol")
     private String nombreRol;
-    /*
-    @OneToMany(mappedBy = "idUsuarioHasRoles")
-    private List<UsuariosHasRoles> listUsuarioHasRoles ;
-    */
-    public Integer getIdRol() {
+    
+    @ManyToMany(mappedBy="listRoles")
+    private List<Usuario> listUsuario;
+    
+    public int getIdRol() {
         return idRol;
     }
 
-    public void setIdRol(Integer idRol) {
+    public void setIdRol(int idRol) {
         this.idRol = idRol;
     }
 
@@ -40,5 +40,12 @@ public class Roles implements Serializable {
     public void setNombreRol(String nombreRol) {
         this.nombreRol = nombreRol;
     }
-
+    
+    public List<Usuario> getListUsuariosHasRoleses() {
+        return listUsuario;
+    }
+    
+    public void setListUsuariosHasRoles(List<Usuario> listUsuario) {
+        this.listUsuario = listUsuario;        
+    }
 }

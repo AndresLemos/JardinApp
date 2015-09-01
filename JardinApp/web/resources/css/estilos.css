@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.Header {
+	background-attachment: fixed;
+	background-image: url("../imagenes/Fondo1.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-weight: bold;
+	height: 39em;
+	margin-top: 3.75em;
+	text-align: center;
+}
+
+.MainMenu {
+	background-color: #5D4037;
+	height: 3.75em;
+	left: 0;
+	line-height: 3.75em;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	top: 0;
+	z-index: 1;
+}
+
+.MainMenu-list { 
+	margin: 0;
+	padding: 0;	
+}
+
+.MainMenu-item {
+	display: inline-block;
+}
+
+.MainMenu-item :hover {
+	background-color: #795548;
+}
+
+.MainMenu-link {
+        text-decoration: none;
+        color: #ffffff;
+        padding: 1.2em;
+}
+
+.Footer {
+	background-color:#1976D2;
+	padding: 1em;
+	text-align: center;
+}
+
+.Footer-List {
+        margin: 0;
+        padding: 0;
+}
+
+.Footer-item {
+        background-image:url(../imagenes/img-footer.png);
+        display: inline-block;
+}
+
+.Footer-link {
+        text-decoration: none;
+        color: #ffffff;
+        padding: 1em;
+}
+
+.Work-form {
+    display: inline-block;    
+}
+
+.Work-formInput {
+    display: block;
+}
+
+.Work-button {
+    display: block;
+}
+

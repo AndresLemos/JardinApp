@@ -6,11 +6,14 @@
 package com.example.jpa.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -31,7 +34,8 @@ public class Departamentos implements Serializable{
  @ManyToOne(optional=false)
  private Pais idPais;
  
-
+ @OneToMany(cascade =CascadeType.ALL,mappedBy="idDepartamento")
+ private List<Ciudad> listCiudad;
  
  public Integer getIdDepartamento(){
      return idDepartamento;
@@ -53,4 +57,12 @@ public Pais getIdPais(){
  public void setIdPais(Pais idPais){
      this.idPais=idPais;
  }
+ 
+ public List<Ciudad> getListCiudad(){
+        return listCiudad;
+    }
+ 
+ public void setListCiudad(List<Ciudad> listCiudad){
+        this.listCiudad=listCiudad;
+    }
 }

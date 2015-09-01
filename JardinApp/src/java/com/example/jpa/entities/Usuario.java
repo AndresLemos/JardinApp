@@ -6,18 +6,24 @@
 package com.example.jpa.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Usuario")
+@Table(name="Usuarios")
 public class Usuario implements Serializable{
     
     @Id
-    @Column(name="id_usuario")
-    private String idUsuario;
+    @Column(name="id_documento")
+    private String idDocumento;
     
     @Column(name="primer_nombre")
     private String primerNombre;
@@ -31,7 +37,7 @@ public class Usuario implements Serializable{
     @Column(name="segundo_apellido")
     private String segundoApellido;
     
-    private String contraseña;
+    private String contrasenia;
     
     private String direccion;
     
@@ -47,16 +53,27 @@ public class Usuario implements Serializable{
     @Column(name="titulo_profesional")
     private String tituloProfesional;
     
-    /*@JoinColumn(name = "id_ciudad", referencedColumnName = "id_ciudad")
     @ManyToOne(optional = false)
-    private Ciudad idCiudad;*/
+    @JoinColumns(
+            {
+                @JoinColumn(name = "id_ciudad", referencedColumnName = "id_ciudad"),
+                @JoinColumn(name="id_departamento", referencedColumnName = "id_departamento")
+            }
+    )
+    private Ciudad idCiudad;
+    
+    @ManyToMany
+    @JoinTable(name = "Usuarios_has_Roles",
+    joinColumns = @JoinColumn(name = "id_documento", referencedColumnName = "id_usuarios"),
+    inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "id_rol"))
+    private List<Roles> listRoles;
 
-    public String getIdUsuario() {
-        return idUsuario;
+    public String getIdDocumento() {
+        return idDocumento;
     }
 
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdDocumento(String idDocumento) {
+        this.idDocumento = idDocumento;
     }
 
     public String getPrimerNombre() {
@@ -91,12 +108,12 @@ public class Usuario implements Serializable{
         this.segundoApellido = segundoApellido;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public String getDireccion() {
@@ -147,5 +164,19 @@ public class Usuario implements Serializable{
         this.tituloProfesional = tituloProfesional;
     }
     
+     public Ciudad getIdCiudad() {
+        return idCiudad;
+    }
+     
+    public void setIdCiudad(Ciudad idCiudad) {
+        this.idCiudad = idCiudad;
+    }
     
+    public List<Roles> getListRoles() {
+        return listRoles;
+    }
+    
+    public void setListUsuariosHasRoles(List<Roles> listRoleses) {
+        this.listRoles = listRoleses;        
+    }
 }

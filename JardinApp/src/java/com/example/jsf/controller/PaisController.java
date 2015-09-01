@@ -56,8 +56,6 @@ public class PaisController implements Serializable {
 
     public List<Pais> getItemsPais() {
         if(itemsPais==null){
-            
-        
             try{
                 itemsPais=getPaisSession().findAll();
             }catch(Exception ex){

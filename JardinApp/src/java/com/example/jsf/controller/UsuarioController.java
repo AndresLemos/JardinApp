@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.jsf.controller;
+
 import com.example.jpa.entities.Usuario;
 import java.util.List;
 import javax.ejb.EJB;
@@ -27,6 +23,9 @@ public class UsuarioController {
     }
     
     public Usuario getSelectedUsuario(){
+        if(selectedUsuario==null){
+            selectedUsuario=new Usuario();
+        }
         return selectedUsuario;
     }
     
@@ -41,15 +40,15 @@ public class UsuarioController {
     public List<Usuario> getItemsUsuario(){
         if(itemsUsuario == null){
             try{
-                itemsUsuario = getItemsUsuario();
-            }
-            catch (Exception ex){
+                itemsUsuario = getUsuarioSession().finAll();
+            }catch (Exception ex){
                 System.err.println(ex.getMessage());
         }
         
     }
         return itemsUsuario;   
     }
+  
     public void create(){
         try{
             getUsuarioSession().create(selectedUsuario);
@@ -58,5 +57,4 @@ public class UsuarioController {
             System.err.println(ex.getMessage());
         }
     }
-
 }

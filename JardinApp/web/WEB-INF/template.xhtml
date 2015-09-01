@@ -2,26 +2,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <h:head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-       
-        <link rel="stylesheet" href="#{request.contextPath}/resource/css/default.css"/>
-         <link rel="stylesheet" href="#{request.contextPath}/resource/css/cssLayout.css"/>
-        <title>Facelets Template</title>
-    </h:head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <!-- Fuente de Letra Google Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'/>
+        <!-- Fin Fuente de Letra Google Fonts -->
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/normalize.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/estilos.css"/>
+        <title>JardinApp</title>
+    </head>
 
-    <h:body>
-
+    <body>
+        
+        <header class="Header">
+            <nav class="MainMenu">
+                <ul class="MainMenu-list">
+                    <li class="MainMenu-item">
+                        <a href="#"  class="MainMenu-link">Inicio</a>
+                    </li>
+                    <li class="MainMenu-item">
+                        <a href="#" class="MainMenu-link">Quienes somos</a>
+                    </li>
+                    <li class="MainMenu-item">
+                        <a href="#" class="MainMenu-link">Como trabajamos</a>
+                    </li>
+                    <li class="MainMenu-item">
+                        <a href="#" class="MainMenu-link">Servicios</a>                    
+                    </li>                    
+                    <li class="MainMenu-item">
+                        <a href="#" class="MainMenu-link">Login</a>
+                    </li>
+                    <li class="MainMenu-item">
+                        <a jsf:outcome="/pages/registro/Create" class="MainMenu-link">Registrarse</a>
+                    </li>
+                </ul>
+            </nav>	
+        </header>
+        <!-- 
         <div id="top" class="top">
            Top
         </div>
-
-        <div id="content" class="center_content">
+        -->
+        <section class="Work">
+            
+        </section>
+        
+        <section id="content" class="center_content">
             <ui:insert name="content">Content</ui:insert>
-        </div>
-
-    </h:body>
-
+        </section>
+        
+        <footer class="Footer">
+            <div class="Footer-List">
+                <div class="Footer-item">
+                    <a href="#" class="Footer-link">Contáctos</a>
+                </div>
+                <div class="Footer-item">
+                    <a href="#" class="Footer-link">terminos y condiciones</a>
+                </div>
+                <div class="Footer-item">
+                    <a href="#" class="Footer-link">jardines afiliados</a>
+                </div>
+            </div>    
+        </footer>
+        
+    </body>
 </html>

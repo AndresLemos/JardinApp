@@ -6,11 +6,14 @@
 package com.example.jpa.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,23 +23,35 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Ciudad")
+@IdClass(value = CiudadPK.class)
 public class Ciudad implements Serializable {
     @Id
     @Column(name="id_ciudad")
-    private int idCiudad;
+    private Integer idCiudad;
     
     @Column(name="nombre_ciudad")
     private String nombreCiudad;
     
+    @Id
     @JoinColumn(name="id_departamento",referencedColumnName="id_departamento")
     @ManyToOne(optional=false)
     private Departamentos idDepartamento;
+    
+    @OneToMany(mappedBy = "idCiudad")
+    private List<Usuario> listUsuario ;
 
-    public int getIdCiudad() {
+    public Ciudad() {
+    }
+
+    public Ciudad(Integer idCiudad) {
+        this.idCiudad = idCiudad;
+    }   
+
+    public Integer getIdCiudad() {
         return idCiudad;
     }
 
-    public void setIdCiudad(int idCiudad) {
+    public void setIdCiudad(Integer idCiudad) {
         this.idCiudad = idCiudad;
     }
 
@@ -56,7 +71,13 @@ public class Ciudad implements Serializable {
         this.idDepartamento = idDepartamento;
     }
     
+    public List<Usuario> getListCiudad() {
+        return listUsuario;
+    }
     
+    public void setListCiudad(List<Usuario> listUsuario) {
+        this.listUsuario = listUsuario;        
+    }
     
 }
 

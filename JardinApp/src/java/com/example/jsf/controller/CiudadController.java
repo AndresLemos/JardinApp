@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.jsf.controller;
 
 import com.example.jpa.entities.Ciudad;
@@ -20,7 +15,8 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class CiudadController implements Serializable {
-    private CiudadSession departamentoSession;
+    
+    private CiudadSession ciudadSession;
     
     private Ciudad selectedCiudad;
     private List<Ciudad> itemsCiudad=null;
@@ -41,13 +37,11 @@ public class CiudadController implements Serializable {
     }
 
     public CiudadSession getCiudadSession() {
-        return departamentoSession;
+        return ciudadSession;
     }
 
     public List<Ciudad> getItemsCiudad() {
         if(itemsCiudad==null){
-            
-        
             try{
                 itemsCiudad=getCiudadSession().findAll();
             }catch(Exception ex){
@@ -60,8 +54,8 @@ public class CiudadController implements Serializable {
     public void create(){
         try{
             getCiudadSession().create(selectedCiudad);
-        }catch(Exception e){
-            System.err.println(e.getMessage());
+        }catch(Exception ex){
+            System.err.println(ex.getMessage());
         }
     }
 }
