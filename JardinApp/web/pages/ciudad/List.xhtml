@@ -14,26 +14,31 @@ and open the template in the editor.
     <ui:define name="content">
         
         <button type="button"  
-                jsf:outcome="create">
+                jsf:outcome="Create">
             Nuevo Ciudad
         </button>
     
          <h:dataTable id="ciudadTable"
-                      value="#{ciudadsController.itemsCiudad}"
+                      value="#{ciudadController.itemsCiudad}"
                      var="ciudad">
             <h:column>
                 <f:facet name="header">
-                    Id Departamento
+                    ID Ciudad
                 </f:facet>    
                 <h:outputText value="#{ciudad.idCiudad}" />
             </h:column>
             <h:column>
                 <f:facet name="header">
-                    Departamento
+                    Nombre Ciudad
                 </f:facet>
                 <h:outputText value="#{ciudad.nombreCiudad}" />
             </h:column>
-            
+            <h:column>
+                <f:facet name="header">
+                    ID Deapartamento
+                </f:facet>
+                <h:outputText value="#{ciudad.idDepartamento}" />
+            </h:column>
         </h:dataTable> 
         
      

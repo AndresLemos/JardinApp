@@ -2,33 +2,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-          
+
       xmlns:jsf="http://xmlns.jcp.org/jsf">
     <body>
 
         <ui:composition template="/WEB-INF/template.xhtml">
 
             <ui:define name="content">
-               <button type="button"
-                       jsf:outcome="pages/paises/List">
-                    Lista de Países
-                </button>
-                <button type="button"
-                        jsf:outcome="pages/departamentos/List">
-                    Lista de Departamentos
-                </button>
-                <button type="button"
-                        jsf:outcome="pages/ciudad/List">
-                    Lista de Ciudades
-                </button>
-                <button type="button"
-                        jsf:outcome="pages/usuarios/List">
-                    Lista de Usuarios
-                </button>
-                <button type="button"
-                        jsf:outcome="pages/roles/List">
-                    Lista de Roles
-                </button>
+                <section class="Work">
+                    <button type="button"
+                            jsf:outcome="pages/paises/List"
+                            class="button-table">
+                        Lista de Países
+                    </button>
+                    <button type="button"
+                            jsf:outcome="pages/departamentos/List"
+                            class="button-table">
+                        Lista de Departamentos
+                    </button>
+                    <button type="button"
+                            jsf:outcome="pages/ciudad/List"
+                            class="button-table">
+                        Lista de Ciudades
+                    </button>
+                    <button type="button"
+                            jsf:outcome="pages/usuarios/List"
+                            class="button-table">
+                        Lista de Usuarios
+                    </button>
+                    <button type="button"
+                            jsf:outcome="pages/roles/List"
+                            class="button-table">
+                        Lista de Roles
+                    </button>
+                </section>    
             </ui:define>
 
         </ui:composition>

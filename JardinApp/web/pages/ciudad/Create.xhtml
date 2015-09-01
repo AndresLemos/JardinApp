@@ -13,18 +13,28 @@ and open the template in the editor.
 
     <ui:define name="content">
          <form class="formulario" jsf:id="createCiudadform">
-           
+             <label>ID Ciudad</label>>
             <input
                 type="text"
                 jsf="idCiudad"
                 required="true"
                 jsf:value="#{ciudadController.selectedCiudad.idCiudad}"/>
-            
+            <laber>Nombre de la Ciudad</laber>
             <input
                 type="text"
                 jsf="nombreCiudad"
                 required="true"
                 jsf:value="#{ciudadController.selectedCiudad.nombreCiudad}"/>
+            
+            <h:selectOneMenu>
+                    <f:selectItem itemLabel="Seleccione Departamento"
+                                  noSelectionOption="true"
+                                  itemDisabled="true"/>
+                    <f:selectItems value="#{departamentosController.itemsDepartamentos}"
+                                   var="dep"
+                                   itemLabel="#{dep.nombreDepartamento}"
+                                   itemValue="#{dep}"/>
+                </h:selectOneMenu>
             
           
             <input class="medium success button" type="submit"

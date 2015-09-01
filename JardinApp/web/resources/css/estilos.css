@@ -10,7 +10,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-weight: bold;
-	height: 39em;
+	height: 15em;
 	margin-top: 3.75em;
 	text-align: center;
 }
@@ -68,15 +68,39 @@
         padding: 1em;
 }
 
+.Work {
+    text-align: center;
+    padding: .5em;
+}
+
 .Work-form {
     display: inline-block;    
+    text-align: center;
+    width: 30em;
 }
 
 .Work-formInput {
-    display: block;
+    display: inline-block;
+    margin: .5em;
+    padding: .5em;
+    width: 10.8em;
+}
+
+.Work-formInput2 {
+    display: inline-block;
+    margin: .5em;
+    padding: .5em;
+    width: 12em;
 }
 
 .Work-button {
-    display: block;
+    display: inline-block;
+    margin: .5em;
+    padding: .5em;
+}
+
+.button-table {
+    margin: .5em;
+    padding: .5em;  
 }
 
