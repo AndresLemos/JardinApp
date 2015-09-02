@@ -5,12 +5,12 @@
 
 .Header {
 	background-attachment: fixed;
-	background-image: url("../imagenes/Fondo1.jpg");
+	background-image: url("../imagenes/Fondo2.jpg");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-weight: bold;
-	height: 15em;
+	height: 40em;
 	margin-top: 3.75em;
 	text-align: center;
 }
@@ -69,8 +69,37 @@
 }
 
 .Work {
-    text-align: center;
-    padding: .5em;
+        background-attachment: fixed;
+        background-image:url(../imagenes/Fondo2.jpg) ;    
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+        text-align: center;
+}
+
+.Work-transparent {
+        background-color: rgba(999,999,999,0.7);
+}
+
+.Work-item {
+        padding: 1em;
+}
+
+.Work-imageContainer{
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.Work-image{
+    width: 23em;
+    height: 15em;  
+}
+
+.Work-text { 
+    display: inline-block; 
+    width: 25em;
+    padding-top: 5em; 
 }
 
 .Work-form {
@@ -104,3 +133,30 @@
     padding: .5em;  
 }
 
+// Estilos de los Creates de las tablas
+
+.formulario-Create {
+    display: inline-block;    
+    text-align: center;
+    width: 5em;
+}
+
+.Work-InputCreate {
+    display: inline-block;
+    margin: .5em;
+    padding: .5em;
+    width: 10.8em;
+}
+
+.Work-button-Create {
+    display: inline-block;
+    margin: .5em;
+    padding: .5em;
+}
+
+.Work-select {    
+    display: inline-block;
+    margin: .5em;
+    padding: .5em;
+    width: 14.5em;        
+}

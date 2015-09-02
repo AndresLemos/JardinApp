@@ -7,23 +7,26 @@
                 xmlns:jsf="http://xmlns.jcp.org/jsf">
 
     <ui:define name="content">
-         <form class="formulario" jsf:id="createDepartamentoform">
-           
-           
+         <form class="formulario-Create" jsf:id="createDepartamentoform">
+           <label>ID Departamento</label>            
             <input
                 type="text"
+                placeholder="ID Departamento"
+                class="Work-InputCreate"
                 jsf="idDepartamento"
                 required="true"
                 jsf:value="#{departamentosController.selectedDepartamento.idDepartamento}"/>
-            
+            <label>Nombre Departamento</label> 
             <input
-                type="text"
+                type="text"                
+                placeholder="Nombre Departamento"
+                class="Work-InputCreate"
                 jsf="nombreDepartamento"
                 required="true"
                 jsf:value="#{departamentosController.selectedDepartamento.nombreDepartamento}"/>
             
           
-            <input class="medium success button" type="submit"
+            <input class="Work-button-Create" type="submit"
                    value="Guardar"
                    jsf:actionListener="#{departamentosController.create()}" jsf:action="List"/>
         </form>

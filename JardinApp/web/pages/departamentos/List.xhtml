@@ -10,7 +10,8 @@
     <ui:define name="content">
         
         <button type="button"  
-                jsf:outcome="create">
+                jsf:outcome="create"
+                class="Work-button-Create">
             Nuevo Departamento
         </button>
     
@@ -21,16 +22,10 @@
                          paginator="true"
                          paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          rowsPerPageTemplate="5,10,15">
-            <p:column>
-                <f:facet name="header">
-                    Id Pais
-                </f:facet>    
+            <p:column headerText="ID Departamento">
                 <h:outputText value="#{departamentos.idDepartamento}" />
             </p:column>
-            <p:column>
-                <f:facet name="header">
-                    Pais
-                </f:facet>
+            <p:column headerText="Nombre Departamento">
                 <h:outputText value="#{departamentos.nombreDepartamento}" />
             </p:column>
             
