@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-08-2015 a las 08:32:06
+-- Tiempo de generación: 02-09-2015 a las 06:46:27
 -- Versión del servidor: 5.5.43-0+deb8u1
 -- Versión de PHP: 5.6.7-1
 
@@ -1378,7 +1378,7 @@ CREATE TABLE IF NOT EXISTS `Usuarios` (
   `segundo_nombre` varchar(10) DEFAULT '',
   `primer apellido` varchar(10) NOT NULL,
   `segundo_apellido` varchar(10) NOT NULL,
-  `contraseña` varchar(15) NOT NULL,
+  `contrasenia` varchar(200) NOT NULL,
   `direccion` varchar(15) NOT NULL,
   `telefono` varchar(12) NOT NULL,
   `celular` varchar(10) NOT NULL,
@@ -1479,8 +1479,8 @@ ADD CONSTRAINT `fk_Usuarios_Ciudad1` FOREIGN KEY (`id_ciudad`) REFERENCES `Ciuda
 -- Filtros para la tabla `Usuarios_has_Roles`
 --
 ALTER TABLE `Usuarios_has_Roles`
-ADD CONSTRAINT `fk_Usuarios_has_Roles_Usuarios1` FOREIGN KEY (`id_usuarios`) REFERENCES `Usuarios` (`id_documento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_Usuarios_has_Roles_Roles1` FOREIGN KEY (`id_rol`) REFERENCES `Roles` (`id_rol`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_Usuarios_has_Roles_Roles1` FOREIGN KEY (`id_rol`) REFERENCES `Roles` (`id_rol`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_Usuarios_has_Roles_Usuarios1` FOREIGN KEY (`id_usuarios`) REFERENCES `Usuarios` (`id_documento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
