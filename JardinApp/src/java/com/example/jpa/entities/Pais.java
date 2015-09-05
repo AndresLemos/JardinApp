@@ -33,6 +33,13 @@ public class Pais implements Serializable {
     //OneToMany para la relacion con Departamentos
     @OneToMany(cascade =CascadeType.ALL,mappedBy="idPais")
     private List<Departamentos> listDepartamentos;
+
+    public Pais() {
+    }
+
+    public Pais(String idPais) {
+        this.idPais = idPais;
+    }
   
     public String getIdPais() {
         return idPais;

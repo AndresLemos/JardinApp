@@ -36,7 +36,15 @@ public class Departamentos implements Serializable{
  
  @OneToMany(cascade =CascadeType.ALL,mappedBy="idDepartamento")
  private List<Ciudad> listCiudad;
- 
+
+ public Departamentos() {
+ }
+
+ public Departamentos(Integer idDepartamento) {
+    this.idDepartamento = idDepartamento;
+ }
+    
+//getters 
  public Integer getIdDepartamento(){
      return idDepartamento;
  }
@@ -47,7 +55,7 @@ public Pais getIdPais(){
     return idPais;
 }
 
-//setter
+//setters
  public void setIdDepartamento(Integer idDepartamento){
      this.idDepartamento=idDepartamento;
  }

@@ -7,6 +7,7 @@ package com.example.jpa.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -33,18 +34,20 @@ public class Ciudad implements Serializable {
     private String nombreCiudad;
     
     @Id
-    @JoinColumn(name="id_departamento",referencedColumnName="id_departamento")
     @ManyToOne(optional=false)
+    @JoinColumn(name="id_departamento")
     private Departamentos idDepartamento;
     
-    @OneToMany(mappedBy = "idCiudad")
+    @OneToMany(cascade =CascadeType.ALL,mappedBy = "idCiudad")
     private List<Usuario> listUsuario ;
 
     public Ciudad() {
     }
 
-    public Ciudad(Integer idCiudad) {
+    public Ciudad(Integer idCiudad, Departamentos idDepartamento, String nombreCiudad) {
         this.idCiudad = idCiudad;
+        this.idDepartamento=idDepartamento;
+        this.nombreCiudad=nombreCiudad;
     }   
 
     public Integer getIdCiudad() {

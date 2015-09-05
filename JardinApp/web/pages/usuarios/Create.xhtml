@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="/WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <form class="formulario-Create" jsf:id="createUsuarioForm">  
+                <input required="true" 
+                       type="text" 
+                       placeholder="Documento" 
+                       jsf:value="#{usuarioController.selectedUsuario.idDocumento}"/>
+                 <input required="true" 
+                       type="text" 
+                       placeholder="Primer nombre" 
+                       jsf:value="#{usuarioController.selectedUsuario.primerNombre}"/>
+                  <input required="true" 
+                       type="text" 
+                       placeholder="Segundo Nombre" 
+                       jsf:value="#{usuarioController.selectedUsuario.segundoNombre}"/>
+                   <input required="true" 
+                       type="text" 
+                       placeholder="Primer Apellido" 
+                       jsf:value="#{usuarioController.selectedUsuario.primerApellido}"/>
+                    <input required="true" 
+                       type="text" 
+                       placeholder="Segundo Apellido" 
+                       jsf:value="#{usuarioController.selectedUsuario.segundoApellido}"/>
+                     <input required="true" 
+                       type="text" 
+                       placeholder="Contraseña" 
+                       jsf:value="#{usuarioController.selectedUsuario.contrasenia}"/>
+                      <input required="true" 
+                       type="text" 
+                       placeholder="Dirección" 
+                       jsf:value="#{usuarioController.selectedUsuario.direccion}"/>
+                       <input required="true" 
+                       type="text" 
+                       placeholder="Teléfono" 
+                       jsf:value="#{usuarioController.selectedUsuario.telefono}"/>
+                        <input required="true" 
+                       type="text" 
+                       placeholder="Celular" 
+                       jsf:value="#{usuarioController.selectedUsuario.celular}"/>
+                         <input required="true" 
+                       type="text" 
+                       placeholder="Correo" 
+                       jsf:value="#{usuarioController.selectedUsuario.correo}"/>
+                     <select jsf:id="pais" 
+                           
+                            size="1"
+                            required="true" 
+                            jsf:value="#{paisController.selectedPais.idPais}">                        
+                        <f:selectItem itemLabel="Seleccione un pais"/>
+                        <f:selectItems value="#{paisController.itemsPais}" 
+                                       var="pais" 
+                                       itemLabel="#{pais.nombrePais}"
+                                       itemValue="#{pais.idPais}"/>
+                        
+                    </select>  
+                    <select jsf:id="ciudad" 
+                           
+                            size="1"
+                            required="true" 
+                            jsf:value="#{usuarioController.selectedUsuario.idCiudad}">                        
+                        <f:selectItem itemLabel="Seleccione una ciudad"/>
+                        <f:selectItems value="#{ciudadController.itemsCiudad}" 
+                                       var="ciudad" 
+                                       itemLabel="#{ciudad.nombreCiudad}"
+                                       itemValue="#{ciudad.idCiudad},#{ciudad.idDepartamento}"/>
+                        
+                    </select>      
+                    
+                         <input class="medium success button" type="submit"
+                   value="Guardar"
+                   jsf:actionListener="#{usuarioController.create}"
+                   jsf:action="List"/>
+                </form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

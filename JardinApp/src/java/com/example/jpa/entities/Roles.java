@@ -24,6 +24,14 @@ public class Roles implements Serializable {
     
     @ManyToMany(mappedBy="listRoles")
     private List<Usuario> listUsuario;
+
+    public Roles() {
+    }
+
+    public Roles(int idRol) {
+        this.idRol = idRol;
+    }
+    
     
     public int getIdRol() {
         return idRol;

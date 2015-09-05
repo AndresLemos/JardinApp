@@ -10,8 +10,9 @@
     <ui:define name="content">
         
         <button type="button"  
-                jsf:outcome="create">
-            Nuevo Pais
+                jsf:outcome="create"
+                class="Work-button-Create">
+            Nuevo País
         </button>
     
      
@@ -20,7 +21,7 @@
                      var="pais" rows="10"
                          paginator="true"
                          paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         rowsPerPageTemplate="5,10,15">
+                         >
             <p:column>
                 <f:facet name="header">
                     Id Pais

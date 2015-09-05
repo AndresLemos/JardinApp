@@ -15,16 +15,19 @@ and open the template in the editor.
     <ui:define name="content">
         
         <button type="button"  
-                jsf:outcome="Create">
-            Nuevo Ciudad
+                jsf:outcome="Create"
+                class="Work-button-Create">
+            Nueva Ciudad
         </button>
     
-         <p:dataTable id="ciudadTable"
-                      value="#{ciudadController.itemsCiudad}"
-                     var="ciudad" rows="10"
+         <p:dataTable   id="ciudadTable"
+                        value="#{ciudadController.itemsCiudad}"
+                        var="ciudad"
+                        rowKey="#{ciudad.idCiudad}"
+                        rows="10"
                          paginator="true"
-                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         rowsPerPageTemplate="5,10,15">
+                         paginatorAlwaysVisible="false"
+                        >
             <p:column>
                 <f:facet name="header">
                     ID Ciudad

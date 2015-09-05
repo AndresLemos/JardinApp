@@ -13,20 +13,24 @@ and open the template in the editor.
 
     <ui:define name="content">
          <form class="formulario" jsf:id="createCiudadform">
-             <label>ID Ciudad</label>>
+             <label>ID Ciudad</label>
             <input
-                type="text"
+                type="text"                
+                placeholder="ID Ciudad"
+                class="Work-InputCreate"
                 jsf="idCiudad"
                 required="true"
                 jsf:value="#{ciudadController.selectedCiudad.idCiudad}"/>
             <laber>Nombre de la Ciudad</laber>
             <input
-                type="text"
+                type="text"                
+                placeholder="Nombre Ciudad"
+                class="Work-InputCreate"
                 jsf="nombreCiudad"
                 required="true"
                 jsf:value="#{ciudadController.selectedCiudad.nombreCiudad}"/>
             
-            <h:selectOneMenu>
+            <h:selectOneMenu class="Work-select">
                     <f:selectItem itemLabel="Seleccione Departamento"
                                   noSelectionOption="true"
                                   itemDisabled="true"/>
@@ -37,7 +41,7 @@ and open the template in the editor.
                 </h:selectOneMenu>
             
           
-            <input class="medium success button" type="submit"
+            <input class="Work-button-Create" type="submit"
                    value="Guardar"
                    jsf:actionListener="#{ciudadController.create()}" jsf:action="List"/>
         </form>

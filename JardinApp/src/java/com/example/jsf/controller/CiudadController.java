@@ -4,6 +4,7 @@ import com.example.jpa.entities.Ciudad;
 import com.example.jpa.sessions.CiudadSession;
 import java.io.Serializable;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -16,6 +17,7 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class CiudadController implements Serializable {
     
+    @EJB
     private CiudadSession ciudadSession;
     
     private Ciudad selectedCiudad;
@@ -53,7 +55,9 @@ public class CiudadController implements Serializable {
     
     public void create(){
         try{
+           
             getCiudadSession().create(selectedCiudad);
+           
         }catch(Exception ex){
             System.err.println(ex.getMessage());
         }

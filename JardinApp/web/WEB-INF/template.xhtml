@@ -22,7 +22,7 @@
             <nav class="MainMenu">
                 <ul class="MainMenu-list">
                     <li class="MainMenu-item">
-                        <a href="#"  class="MainMenu-link">Inicio</a>
+                        <a jsf:outcome="/index.xhtml" class="MainMenu-link">Inicio</a>
                     </li>
                     <li class="MainMenu-item">
                         <a href="#" class="MainMenu-link">Quienes somos</a>
@@ -46,25 +46,23 @@
         <div id="top" class="top">
            Top
         </div>
-        -->
-        <section class="Work">
-            
-        </section>
-        
-        <section id="content" class="center_content">
+        -->        
+        <section id="content" class="Work">
+            <div class="Work-transparent">
             <ui:insert name="content">Content</ui:insert>
+            </div>
         </section>
         
         <footer class="Footer">
             <div class="Footer-List">
                 <div class="Footer-item">
-                    <a href="#" class="Footer-link">Contáctos</a>
+                    <a href="#" class="Footer-link">Contáctenos</a>
                 </div>
                 <div class="Footer-item">
-                    <a href="#" class="Footer-link">terminos y condiciones</a>
+                    <a href="#" class="Footer-link">Terminos y Condiciones</a>
                 </div>
                 <div class="Footer-item">
-                    <a href="#" class="Footer-link">jardines afiliados</a>
+                    <a href="#" class="Footer-link">Jardines afiliados</a>
                 </div>
             </div>    
         </footer>
