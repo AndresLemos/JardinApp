@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-09-2015 a las 06:46:27
+-- Tiempo de generación: 11-09-2015 a las 16:25:03
 -- Versión del servidor: 5.5.43-0+deb8u1
 -- Versión de PHP: 5.6.7-1
 
@@ -1369,6 +1369,27 @@ INSERT INTO `Roles` (`id_rol`, `nombre_rol`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tipos_documentos`
+--
+
+CREATE TABLE IF NOT EXISTS `tipos_documentos` (
+`id_tipos_documentos` int(11) NOT NULL,
+  `nombre_tipo_documento` varchar(23) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tipos_documentos`
+--
+
+INSERT INTO `tipos_documentos` (`id_tipos_documentos`, `nombre_tipo_documento`) VALUES
+(1, 'Cédula de Ciudadanía'),
+(2, 'Tarjeta de Identidad'),
+(3, 'Cédula de Extrangería'),
+(4, 'Registro Civil');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `Usuarios`
 --
 
@@ -1383,7 +1404,7 @@ CREATE TABLE IF NOT EXISTS `Usuarios` (
   `telefono` varchar(12) NOT NULL,
   `celular` varchar(10) NOT NULL,
   `correo` varchar(15) NOT NULL,
-  `tipo_documento` varchar(18) NOT NULL,
+  `tipo_documento` int(11) NOT NULL,
   `titulo_profesional` varchar(45) DEFAULT NULL,
   `id_ciudad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1428,10 +1449,16 @@ ALTER TABLE `Roles`
  ADD PRIMARY KEY (`id_rol`), ADD UNIQUE KEY `idRoles_UNIQUE` (`id_rol`);
 
 --
+-- Indices de la tabla `tipos_documentos`
+--
+ALTER TABLE `tipos_documentos`
+ ADD PRIMARY KEY (`id_tipos_documentos`), ADD UNIQUE KEY `id_tipos_documentos_UNIQUE` (`id_tipos_documentos`);
+
+--
 -- Indices de la tabla `Usuarios`
 --
 ALTER TABLE `Usuarios`
- ADD PRIMARY KEY (`id_documento`), ADD UNIQUE KEY `idUsuarios_UNIQUE` (`id_documento`), ADD KEY `fk_Usuarios_Ciudad1_idx` (`id_ciudad`);
+ ADD PRIMARY KEY (`id_documento`), ADD UNIQUE KEY `idUsuarios_UNIQUE` (`id_documento`), ADD KEY `fk_Usuarios_Ciudad1_idx` (`id_ciudad`), ADD KEY `tipo_documento` (`tipo_documento`);
 
 --
 -- Indices de la tabla `Usuarios_has_Roles`
@@ -1454,6 +1481,11 @@ MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
 ALTER TABLE `Roles`
 MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT de la tabla `tipos_documentos`
+--
+ALTER TABLE `tipos_documentos`
+MODIFY `id_tipos_documentos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -1473,7 +1505,8 @@ ADD CONSTRAINT `fk_Departamento_Pais1` FOREIGN KEY (`id_pais`) REFERENCES `Pais`
 -- Filtros para la tabla `Usuarios`
 --
 ALTER TABLE `Usuarios`
-ADD CONSTRAINT `fk_Usuarios_Ciudad1` FOREIGN KEY (`id_ciudad`) REFERENCES `Ciudad` (`id_ciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_Usuarios_Ciudad1` FOREIGN KEY (`id_ciudad`) REFERENCES `Ciudad` (`id_ciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_Usuarios_Tipo_Documento` FOREIGN KEY (`tipo_documento`) REFERENCES `tipos_documentos` (`id_tipos_documentos`);
 
 --
 -- Filtros para la tabla `Usuarios_has_Roles`
