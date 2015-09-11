@@ -11,49 +11,77 @@
         <ui:composition template="/WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <form class="formulario-Create" jsf:id="createUsuarioForm">  
+                <section class="Work">
+                <div class="Work-transparent">
+                <h2 class="Work-title">Regístrarse</h2>
+                
+                <form  jsf:id="createUsuarioForm"> 
+                    <select jsf:id="tipoDocumento" 
+                           class="Work-formInput"
+                            size="1"
+                            required="true" 
+                            jsf:value="#{tipoDocumentoController.selectedTipoDocumento}">                        
+                        <f:selectItem itemLabel="Tipo de documento"/>
+                        <f:selectItems value="#{tipoDocumentoController.itemsTipoDocumento}" 
+                                       var="tipoDocumento" 
+                                       itemLabel="#{tipoDocumento.tipoDocumento}"
+                                       itemValue="#{tipoDocumento.idTipo}"/>
+                        
+                    </select> 
                 <input required="true" 
+                       class="Work-formInput"
                        type="text" 
                        placeholder="Documento" 
                        jsf:value="#{usuarioController.selectedUsuario.idDocumento}"/>
                  <input required="true" 
+                        class="Work-formInput"
                        type="text" 
                        placeholder="Primer nombre" 
                        jsf:value="#{usuarioController.selectedUsuario.primerNombre}"/>
                   <input required="true" 
+                         class="Work-formInput"
                        type="text" 
                        placeholder="Segundo Nombre" 
                        jsf:value="#{usuarioController.selectedUsuario.segundoNombre}"/>
                    <input required="true" 
+                          class="Work-formInput"
                        type="text" 
                        placeholder="Primer Apellido" 
                        jsf:value="#{usuarioController.selectedUsuario.primerApellido}"/>
                     <input required="true" 
+                           class="Work-formInput"
                        type="text" 
                        placeholder="Segundo Apellido" 
                        jsf:value="#{usuarioController.selectedUsuario.segundoApellido}"/>
                      <input required="true" 
+                            class="Work-formInput"
                        type="text" 
                        placeholder="Contraseña" 
                        jsf:value="#{usuarioController.selectedUsuario.contrasenia}"/>
                       <input required="true" 
                        type="text" 
                        placeholder="Dirección" 
+                       class="Work-formInput"
                        jsf:value="#{usuarioController.selectedUsuario.direccion}"/>
                        <input required="true" 
+                              class="Work-formInput"
                        type="text" 
                        placeholder="Teléfono" 
                        jsf:value="#{usuarioController.selectedUsuario.telefono}"/>
                         <input required="true" 
+                               
                        type="text" 
                        placeholder="Celular" 
+                       class="Work-formInput"
                        jsf:value="#{usuarioController.selectedUsuario.celular}"/>
-                         <input required="true" 
+                         <input required="true"
+                                class="Work-formInput"
                        type="text" 
                        placeholder="Correo" 
+                      
                        jsf:value="#{usuarioController.selectedUsuario.correo}"/>
                      <select jsf:id="pais" 
-                           
+                           class="Work-formInput"
                             size="1"
                             required="true" 
                             jsf:value="#{paisController.selectedPais.idPais}">                        
@@ -65,7 +93,7 @@
                         
                     </select>  
                     <select jsf:id="ciudad" 
-                           
+                           class="Work-formInput"
                             size="1"
                             required="true" 
                             jsf:value="#{usuarioController.selectedUsuario.idCiudad}">                        
@@ -77,11 +105,13 @@
                         
                     </select>      
                     
-                         <input class="medium success button" type="submit"
+                         <input class="Work-formInput" type="submit"
                    value="Guardar"
                    jsf:actionListener="#{usuarioController.create}"
                    jsf:action="List"/>
                 </form>
+                 </div>
+            </section>  
             </ui:define>
 
         </ui:composition>
