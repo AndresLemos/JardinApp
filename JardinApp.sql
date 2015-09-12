@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-09-2015 a las 16:25:03
+-- Tiempo de generación: 12-09-2015 a las 11:08:53
 -- Versión del servidor: 5.5.43-0+deb8u1
 -- Versión de PHP: 5.6.7-1
 
@@ -1092,6 +1092,16 @@ INSERT INTO `Departamento` (`id_departamento`, `nombre_departamento`, `id_pais`)
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `LoginView`
+--
+CREATE TABLE IF NOT EXISTS `LoginView` (
+`correo` varchar(15)
+,`contrasenia` varchar(200)
+,`id_rol` int(11)
+);
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `Pais`
 --
 
@@ -1409,6 +1419,13 @@ CREATE TABLE IF NOT EXISTS `Usuarios` (
   `id_ciudad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `Usuarios`
+--
+
+INSERT INTO `Usuarios` (`id_documento`, `primer_nombre`, `segundo_nombre`, `primer apellido`, `segundo_apellido`, `contrasenia`, `direccion`, `telefono`, `celular`, `correo`, `tipo_documento`, `titulo_profesional`, `id_ciudad`) VALUES
+('11223344', 'Camila', 'Andrea', 'Becerra', 'Perez', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'calle 23', '1234', '3111234', 'camila@gmail.co', 1, 'Tecnico en atencion a la primera infancia', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -1419,6 +1436,15 @@ CREATE TABLE IF NOT EXISTS `Usuarios_has_Roles` (
   `id_usuarios` varchar(15) NOT NULL,
   `id_rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `LoginView`
+--
+DROP TABLE IF EXISTS `LoginView`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `LoginView` AS select `Usuarios`.`correo` AS `correo`,`Usuarios`.`contrasenia` AS `contrasenia`,`Roles`.`id_rol` AS `id_rol` from ((`Usuarios` join `Roles`) join `Usuarios_has_Roles`) where ((`Usuarios`.`id_documento` = `Usuarios_has_Roles`.`id_usuarios`) and (`Roles`.`id_rol` = `Usuarios_has_Roles`.`id_rol`));
 
 --
 -- Índices para tablas volcadas
