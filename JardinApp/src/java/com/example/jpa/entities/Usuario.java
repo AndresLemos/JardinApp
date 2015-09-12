@@ -47,8 +47,9 @@ public class Usuario implements Serializable{
     
     private String correo;
     
-    @Column(name="tipo_documento")
-    private String tipoDocumento;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_tipos_documentos", referencedColumnName = "id_tipos_documentos")
+    private TipoDocumento tipoDocumento;
     
     @Column(name="titulo_profesional")
     private String tituloProfesional;
@@ -155,11 +156,11 @@ public class Usuario implements Serializable{
         this.correo = correo;
     }
 
-    public String getTipoDocumento() {
+    public TipoDocumento getTipoDocumento() {
         return tipoDocumento;
     }
 
-    public void setTipoDocumento(String tipoDocumento) {
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
 

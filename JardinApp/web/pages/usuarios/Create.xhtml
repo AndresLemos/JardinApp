@@ -15,9 +15,9 @@
                 <div class="Work-transparent">
                 <h2 class="Work-title">Regístrarse</h2>
                 
-                <form  jsf:id="createUsuarioForm"> 
+                <form class="Work-form" jsf:id="createUsuarioForm"> 
                     <select jsf:id="tipoDocumento" 
-                           class="Work-formInput"
+                           class="Work-formInput2"
                             size="1"
                             required="true" 
                             jsf:value="#{tipoDocumentoController.selectedTipoDocumento}">                        
@@ -81,7 +81,7 @@
                       
                        jsf:value="#{usuarioController.selectedUsuario.correo}"/>
                      <select jsf:id="pais" 
-                           class="Work-formInput"
+                           class="Work-formInput2"
                             size="1"
                             required="true" 
                             jsf:value="#{paisController.selectedPais.idPais}">                        
@@ -93,7 +93,7 @@
                         
                     </select>  
                     <select jsf:id="ciudad" 
-                           class="Work-formInput"
+                           class="Work-formInput2"
                             size="1"
                             required="true" 
                             jsf:value="#{usuarioController.selectedUsuario.idCiudad}">                        
