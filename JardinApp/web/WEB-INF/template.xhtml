@@ -34,10 +34,17 @@
                         <a href="#" class="MainMenu-link">Servicios</a>                    
                     </li>                    
                     <li class="MainMenu-item">
-                        <a jsf:outcome="/pages/login/Create" class="MainMenu-link">Login</a>
+                        
+                        <a rendered="#{!loginController.authenticated}" jsf:outcome="/pages/administrador/login/Create" class="MainMenu-link">Login</a>
+                        
+                        
+                        <form rendered="#{loginController.authenticated}"  jsf:id="logoutForm">
+                                <a jsf:action="#{loginController.logout}">Salir</a>
+                            </form>
+                       
                     </li>
                     <li class="MainMenu-item">
-                        <a jsf:outcome="/pages/usuarios/Create" class="MainMenu-link">Registrarse</a>
+                        <a jsf:outcome="/pages/administrador/usuarios/Create" class="MainMenu-link">Registrarse</a>
                     </li>
                 </ul>
             </nav>	

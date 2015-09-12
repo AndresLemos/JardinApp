@@ -5,65 +5,69 @@
 
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:body>
-
+    
         <ui:composition template="/WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <section class="Work">
-                    <div class="Work-transparent">
-                    <button type="button"
-                            jsf:outcome="pages/paises/List"
-                            class="button-table">
-                        Lista de Países
-                    </button>
-                    <button type="button"
-                            jsf:outcome="pages/departamentos/List"
-                            class="button-table">
-                        Lista de Departamentos
-                    </button>
-                    <button type="button"
-                            jsf:outcome="pages/ciudad/List"
-                            class="button-table">
-                        Lista de Ciudades
-                    </button>
-                    <button type="button"
-                            jsf:outcome="pages/usuarios/List"
-                            class="button-table">
-                        Lista de Usuarios
-                    </button>
-                    <button type="button"
-                            jsf:outcome="pages/roles/List"
-                            class="button-table">
-                        Lista de Roles
-                    </button>
-                    
-                    <h1>¿Que es JardinApp?</h1>    
-                        
-                    <article class="Work-item">                        
-                        <figure class="Work-imageContainer">
-                            <img src="resources/imagenes/img-work.jpg" class="Work-image"/>
-                        </figure>  
-                        
-                        <p class="Work-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
-                            doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
-                            animi nobis itaque porro neque quis!
-                        </p>    
-                    </article>
-                    
-                    <article class="Work-item">
-                        <p class="Work-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
-                            doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
-                            animi nobis itaque porro neque quis!
-                        </p>
-                        
-                        <figure class="Work-imageContainer">
-                            <img src="resources/imagenes/img-work2.jpg" class="Work-image"/>
-                        </figure>    
-                    </article>  
-                    </div>    
+              
+                  <h:panelGroup rendered="#{loginController.authenticated}">
+                      <button type="button"
+                                    jsf:outcome="pages/paises/List"
+                                    class="button-table">
+                                Lista de Países
+                            </button>
+                            <button type="button"
+                                    jsf:outcome="pages/departamentos/List"
+                                    class="button-table">
+                                Lista de Departamentos
+                            </button>
+                            <button type="button"
+                                    jsf:outcome="pages/ciudad/List"
+                                    class="button-table">
+                                Lista de Ciudades
+                            </button>
+                            <button type="button"
+                                    jsf:outcome="pages/usuarios/List"
+                                    class="button-table">
+                                Lista de Usuarios
+                            </button>
+                            <button type="button"
+                                    jsf:outcome="pages/roles/List"
+                                    class="button-table">
+                                Lista de Roles
+                            </button>
+                            <form jsf:id="logoutForm">
+                                <a jsf:action="#{loginController.logout}">Salir</a>
+                            </form>
+                       </h:panelGroup>
+                        <section class="Work">
+                            <div class="Work-transparent">     
+                       <h1>¿Que es JardinApp?</h1>    
+
+                       <article class="Work-item">                        
+                           <figure class="Work-imageContainer">
+                               <img src="resources/imagenes/img-work.jpg" class="Work-image"/>
+                           </figure>  
+
+                           <p class="Work-text">
+                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
+                               doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
+                               animi nobis itaque porro neque quis!
+                           </p>    
+                       </article>
+
+                       <article class="Work-item">
+                           <p class="Work-text">
+                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
+                               doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
+                               animi nobis itaque porro neque quis!
+                           </p>
+
+                           <figure class="Work-imageContainer">
+                               <img src="resources/imagenes/img-work2.jpg" class="Work-image"/>
+                           </figure>    
+                       </article>  
+                     </div>    
                 </section>         
                 
                 <section class="Profiles">
@@ -102,5 +106,5 @@
 
         </ui:composition>
 
-    </h:body>
+
 </html>

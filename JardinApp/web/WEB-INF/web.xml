@@ -21,4 +21,45 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
+    <security-constraint>
+        <display-name>admin-zone</display-name>
+        <web-resource-collection>
+            <web-resource-name>admin-zone</web-resource-name>
+            <description>Zona de administradores</description>
+            <url-pattern>/faces/pages/administrador</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Administrador</role-name>
+            <role-name>Profesor</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>profesor-zone</display-name>
+        <web-resource-collection>
+            <web-resource-name>profesor-zone</web-resource-name>
+            <description>zona de profesores basicos del sistema</description>
+            <url-pattern>/faces/pages/profesor</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Profesor</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>JardinApp</realm-name>
+        <form-login-config>
+            <form-login-page>/error.xhtml</form-login-page>
+            <form-error-page>/error.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>Administrador de toda la plataforma</description>
+        <role-name>Administrador</role-name>
+    </security-role>
+    <security-role>
+        <description>Usuarios Profesor comunes del sistema</description>
+        <role-name>Profesor</role-name>
+    </security-role>
 </web-app>

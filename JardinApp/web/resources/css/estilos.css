@@ -39,7 +39,9 @@
 .MainMenu-item :hover {
 	background-color: #1976D2;
 }
-
+.Work-transparent h1{
+    margin: 0;
+}
 .MainMenu-link {
         text-decoration: none;
         color: #ffffff;
