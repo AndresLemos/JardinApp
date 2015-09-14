@@ -3,6 +3,89 @@
     margin: 0;
 }
 
+/* Inicio Fonts */
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?an4fgv');
+	src:url('../fonts/icomoon.eot?#iefixan4fgv') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?an4fgv') format('truetype'),
+		url('../fonts/icomoon.woff?an4fgv') format('woff'),
+		url('../fonts/icomoon.svg?an4fgv#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before,
+[class^="icon-"]:after, [class*=" icon-"]:after {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home3:before {
+	content: "\e600";        
+	padding-right:0.5em;        
+}
+.icon-profile:before {
+	content: "\e601";
+        padding-right:0.5em;
+}
+.icon-user:before {
+	content: "\e602";
+        padding-right:0.5em;
+}
+.icon-user-tie:before {
+	content: "\e603";
+        padding-right:0.5em;
+}
+.icon-briefcase:before {
+	content: "\e604";
+        padding-right:0.5em;
+}
+.icon-menu:before {
+	content: "\e605";        
+	color: #FFF;
+	padding-right:0.5em;
+}
+.icon-sphere:before {
+	content: "\e606";
+        padding-right:0.5em;
+}
+.icon-cross:before {
+	content: "\e607";
+        padding-right:0.5em;
+}
+.icon-facebook2:before {
+	content: "\e608";
+        color: #FFF;
+        font-size: 2em;
+        vertical-align: top;
+        margin: 0 .5em;
+}
+
+.icon-twitter2:before {
+	content: "\e609";
+        color: #FFF;
+        font-size: 2em;
+        vertical-align: top;
+        margin: 0 .7em;
+}
+.icon-profile:before {
+    content: "\e601";
+    padding-right:0.5em;
+}
+
+/* Fin de los Fonts */
+
 .Header {
 	background-attachment: fixed;
 	background-image: url("../imagenes/Fondo3.jpg");
@@ -10,7 +93,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-weight: bold;
-	height: 40em;
+	height: 30em;
 	margin-top: 3.75em;
 	text-align: center;
 }
@@ -117,6 +200,25 @@
         -o-box-shadow: inset 0 70px 0px 0px #448AFF;
 }
 
+.Footer-External-Links {
+    text-align: right;
+    vertical-align: top;
+    display: inline-block;
+    width: 13em;
+    color: #FFF;    
+    
+}
+
+.Footer-External-title {
+    padding: 1em;
+    display: block;
+    
+}
+
+.Footer-link-icons {
+    text-decoration: none;
+}
+
 .Footer-List {    
         display: block;
         margin: 0;
@@ -143,8 +245,14 @@
         background-color: rgba(999,999,999,0.7);
 }
 
+.Work-title {
+    padding: .5em;
+}
+
 .Work-item {
-        padding: 1em;
+        display: inline-block;
+        padding: .5em;
+        max-width: 20em;
 }
 
 .Work-imageContainer{
@@ -154,14 +262,16 @@
 }
 
 .Work-image{
-    width: 23em;
-    height: 15em;  
+    width: 18em;
+    height: 12em;  
+    display: inline-block;
 }
 
 .Work-text { 
     display: inline-block; 
-    width: 25em;
-    padding-top: 5em; 
+    max-width: 17.5em;
+    text-align: justify;
+    padding: .5em;
 }
 
 .Work-form {
@@ -184,6 +294,7 @@
     width: 12em;
 }
 
+.Work-Button,
 .Work-button-left,
 .Work-button-right {
 
@@ -204,6 +315,13 @@
         -moz-transition: all ease 0.8s;
         -o-transition: all ease 0.8s;
         transition: all ease 0.8s;   
+}
+
+.Work-Button:hover {
+        box-shadow: inset 0 70px 0 0 #448AFF;
+        -webkit-box-shadow: inset 0 70px 0px 0px #448AFF;
+        -moz-box-shadow: inset 0 70px 0px 0px #448AFF;
+        -o-box-shadow: inset 0 70px 0px 0px #448AFF;
 }
 
 .Work-button-left:hover {   
@@ -290,4 +408,155 @@
     margin: .5em;
     padding: .5em;
     width: 14.5em;        
+}
+/* Este div no aparece cuando esta en pantalla escritorio */
+.div-menu {
+	display: none;
+
+}
+
+@media screen and (max-width: 1000px) {
+        .Header {
+            margin: 0;
+                                         
+        }
+	.Header .MainMenu {
+		width:100%;
+		height: 100%;
+		margin:0;
+		position: fixed;
+                margin-top: 3.8em;
+		top: -100%;
+                height: auto;
+                z-index: 0;                
+	}
+        
+	.Header .MainMenu .MainMenu-list .MainMenu-item {
+		display: block;
+		float: none;
+		border-bottom: 1px solid #FFF;
+		margin: 0;
+		width: 100%;
+                text-align: center;
+	}
+        
+        .Header .MainMenu .MainMenu-list .MainMenu-item .MainMenu-link {
+		display: block;
+		padding: 1em 0 1em 3em;
+                height: 2em;
+	}
+
+	.div-menu{
+		display: block;
+		width: 100%;
+		background-color: #0288D1;
+		height: 2.8em;	
+		padding: .5em;
+		position: fixed;
+		z-index:1;
+                border-bottom: 1px solid #FFF;
+	}
+
+	.div-menu .btn-menu {
+		display: block;
+		font-size: 1.8em;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-o-box-sizing:border-box;
+		box-sizing:border-box;
+		text-align: left;
+		padding-left:1em;
+                color:#FFF;
+                text-decoration: none;
+	}	
+}
+
+@media screen and (max-width: 487px) {
+    
+        /* Template*/
+    
+        .Header .MainMenu .MainMenu-list .MainMenu-item  {
+            text-align: left;
+        }
+        
+        .Footer-left {
+            max-width: 15em;
+        }    
+        
+        .Footer-Title {
+            padding: .5em 0;            
+        }
+    
+        .Footer-form {
+            padding: 1.5em 0 0 0;
+        }
+    
+        .Footer-External-Links {
+                display: block;
+                text-align: center;
+                width: auto;
+                padding: 1em 0 1.5em 0;
+        }
+
+        .Footer {
+                padding: 0;
+        }
+
+        .Footer-link {
+                display: block;
+                border-top: 1px solid #FFF;
+                padding: 1em;
+                font-weight: bold;
+        }
+        
+        .Footer-link:hover {
+            
+        }
+        
+        /* Index */
+        
+        .Work-image {
+            width: 12em;
+            height: 8em;  
+            
+        }
+        
+        .Profiles-item {
+            padding: 0;
+
+        }
+        
+        .Profiles-imageContainer {
+            padding: 1em 0;            
+        }
+               
+        /* Login */
+        
+        .Work-form {
+            display: block;
+            width: auto; 
+            text-align: center;
+        }
+        
+        .Work-formInput {
+            display: block;
+            margin: .5em auto;
+            width: 12em;
+        }
+        
+        .Work-formInput2 {
+            width: 13.5em;            
+        }
+        
+        .Work-Button {
+            width: 15em;            
+        }
+        .Work-button-left,
+        .Work-button-right {
+            width: 7em;
+            display: inline-block;
+            padding: 1em;
+            margin: .5em;
+            
+        }
 }

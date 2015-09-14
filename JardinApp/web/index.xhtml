@@ -5,106 +5,118 @@
 
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    
-        <ui:composition template="/WEB-INF/template.xhtml">
 
-            <ui:define name="content">
-              
-                  <h:panelGroup rendered="#{loginController.authenticated}">
-                      <button type="button"
-                                    jsf:outcome="pages/paises/List"
-                                    class="button-table">
-                                Lista de Países
-                            </button>
-                            <button type="button"
-                                    jsf:outcome="pages/departamentos/List"
-                                    class="button-table">
-                                Lista de Departamentos
-                            </button>
-                            <button type="button"
-                                    jsf:outcome="pages/ciudad/List"
-                                    class="button-table">
-                                Lista de Ciudades
-                            </button>
-                            <button type="button"
-                                    jsf:outcome="pages/usuarios/List"
-                                    class="button-table">
-                                Lista de Usuarios
-                            </button>
-                            <button type="button"
-                                    jsf:outcome="pages/roles/List"
-                                    class="button-table">
-                                Lista de Roles
-                            </button>
-                            <form jsf:id="logoutForm">
-                                <a jsf:action="#{loginController.logout}">Salir</a>
-                            </form>
-                       </h:panelGroup>
-                        <section class="Work">
-                            <div class="Work-transparent">     
-                       <h1>¿Que es JardinApp?</h1>    
+    <ui:composition template="/WEB-INF/template.xhtml">
 
-                       <article class="Work-item">                        
-                           <figure class="Work-imageContainer">
-                               <img src="resources/imagenes/img-work.jpg" class="Work-image"/>
-                           </figure>  
+        <ui:define name="content">
 
-                           <p class="Work-text">
-                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
-                               doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
-                               animi nobis itaque porro neque quis!
-                           </p>    
-                       </article>
+            <h:panelGroup rendered="#{loginController.authenticated}">
+                <button type="button"
+                        jsf:outcome="pages/paises/List"
+                        class="button-table">
+                    Lista de Países
+                </button>
+                <button type="button"
+                        jsf:outcome="pages/departamentos/List"
+                        class="button-table">
+                    Lista de Departamentos
+                </button>
+                <button type="button"
+                        jsf:outcome="pages/ciudad/List"
+                        class="button-table">
+                    Lista de Ciudades
+                </button>
+                <button type="button"
+                        jsf:outcome="pages/usuarios/List"
+                        class="button-table">
+                    Lista de Usuarios
+                </button>
+                <button type="button"
+                        jsf:outcome="pages/roles/List"
+                        class="button-table">
+                    Lista de Roles
+                </button>
+                <form jsf:id="logoutForm">
+                    <a jsf:action="#{loginController.logout}">Salir</a>
+                </form>
+            </h:panelGroup>
+            <section class="Work">
+                <div class="Work-transparent">     
+                    <h1 class="Work-title">¿Que es JardinApp?</h1>    
 
-                       <article class="Work-item">
-                           <p class="Work-text">
-                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
-                               doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
-                               animi nobis itaque porro neque quis!
-                           </p>
+                    <article class="Work-item">                        
+                        <figure class="Work-imageContainer">
+                            <img src="resources/imagenes/img-work.jpg" class="Work-image"/>
+                        </figure>  
 
-                           <figure class="Work-imageContainer">
-                               <img src="resources/imagenes/img-work2.jpg" class="Work-image"/>
-                           </figure>    
-                       </article>  
-                     </div>    
-                </section>         
-                
-                <section class="Profiles">
-                    <div class="Profiles-transparent">
-                        <article class="Profiles-item">
-                            <figure class="Profiles-imageContainer">
-                                <img src="resources/imagenes/img1.jpg" class="Profiles-img"/>
-                                <figcaption class="Profiles-description">Andrés Lemos</figcaption>
-                                <figcaption class="Profiles-description">Diseñador Web</figcaption>
-                            </figure>
-                            <figure class="Profiles-imageContainer">
-                                <img src="resources/imagenes/img2.jpg" class="Profiles-img"/>
-                                <figcaption class="Profiles-description">Paola Pino</figcaption>
-                                <figcaption class="Profiles-description">Admin. de Base de Datos</figcaption>
-                            </figure>
-                            <figure class="Profiles-imageContainer">
-                                <img src="resources/imagenes/img3.jpg" class="Profiles-img"/>
-                                <figcaption class="Profiles-description">Maira Rodriguez</figcaption>    
-                                <figcaption class="Profiles-description">Diseñadora Web</figcaption>  
-                            </figure>
-                            <figure class="Profiles-imageContainer">
-                                <img src="resources/imagenes/img4.jpg" class="Profiles-img"/>
-                                <figcaption class="Profiles-description">Jhon Bravo</figcaption>
-                                <figcaption class="Profiles-description">Analista informático</figcaption>
-                            </figure>
-                            <figure class="Profiles-imageContainer">
-                                <img src="resources/imagenes/img5.jpg" class="Profiles-img"/>
-                                <figcaption class="Profiles-description">Luis Britto</figcaption>
-                                <figcaption class="Profiles-description">Programador</figcaption>
-                            </figure>                            
-                            
-                        </article>
-                    </div>
-                </section>
-            </ui:define>
+                        <p class="Work-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
+                            doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
+                            animi nobis itaque porro neque quis!
+                        </p>    
+                    </article>
 
-        </ui:composition>
+                    <article class="Work-item">
+                        <figure class="Work-imageContainer">
+                            <img src="resources/imagenes/img-work2.jpg" class="Work-image"/>
+                        </figure>    
+                        
+                        <p class="Work-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
+                            doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
+                            animi nobis itaque porro neque quis!
+                        </p>                        
+                    </article> 
+                    
+                    <article class="Work-item">
+                        <figure class="Work-imageContainer">
+                            <img src="resources/imagenes/img-work3.jpg" class="Work-image"/>
+                        </figure>    
+                        
+                        <p class="Work-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus aliquam molestiae
+                            doloremque, deleniti repellat iure culpa praesentium laborum laboriosam, modi sapiente earum eum,
+                            animi nobis itaque porro neque quis!
+                        </p>                        
+                    </article>
+                </div>    
+            </section>         
+
+            <section class="Profiles">
+                <div class="Profiles-transparent">
+                    <article class="Profiles-item">
+                        <figure class="Profiles-imageContainer">
+                            <img src="resources/imagenes/img1.jpg" class="Profiles-img"/>
+                            <figcaption class="Profiles-description">Andrés Lemos</figcaption>
+                            <figcaption class="Profiles-description">Diseñador Web</figcaption>
+                        </figure>
+                        <figure class="Profiles-imageContainer">
+                            <img src="resources/imagenes/img2.jpg" class="Profiles-img"/>
+                            <figcaption class="Profiles-description">Paola Pino</figcaption>
+                            <figcaption class="Profiles-description">Admin. de Base de Datos</figcaption>
+                        </figure>
+                        <figure class="Profiles-imageContainer">
+                            <img src="resources/imagenes/img3.jpg" class="Profiles-img"/>
+                            <figcaption class="Profiles-description">Maira Rodriguez</figcaption>    
+                            <figcaption class="Profiles-description">Diseñadora Web</figcaption>  
+                        </figure>
+                        <figure class="Profiles-imageContainer">
+                            <img src="resources/imagenes/img4.jpg" class="Profiles-img"/>
+                            <figcaption class="Profiles-description">Jhon Bravo</figcaption>
+                            <figcaption class="Profiles-description">Analista informático</figcaption>
+                        </figure>
+                        <figure class="Profiles-imageContainer">
+                            <img src="resources/imagenes/img5.jpg" class="Profiles-img"/>
+                            <figcaption class="Profiles-description">Luis Britto</figcaption>
+                            <figcaption class="Profiles-description">Programador</figcaption>
+                        </figure>                            
+
+                    </article>
+                </div>
+            </section>
+        </ui:define>
+
+    </ui:composition>
 
 
 </html>

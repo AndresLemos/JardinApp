@@ -19,23 +19,26 @@
     <h:body>
         
         <header class="Header">
+            <div class="div-menu">
+                <a href="#" class="btn-menu icon-menu">Menú</a>
+            </div>
             <nav class="MainMenu">
                 <ul class="MainMenu-list">
                     <li class="MainMenu-item">
-                        <a jsf:outcome="/index.xhtml" class="MainMenu-link">Inicio</a>
+                        <a jsf:outcome="/index.xhtml" class="MainMenu-link icon-home3">Inicio</a>
                     </li>
                     <li class="MainMenu-item">
-                        <a href="#" class="MainMenu-link">Quienes somos</a>
+                        <a href="#" class="MainMenu-link icon-user-tie">Quienes somos</a>
                     </li>
                     <li class="MainMenu-item">
-                        <a href="#" class="MainMenu-link">Como trabajamos</a>
+                        <a href="#" class="MainMenu-link icon-briefcase">Como trabajamos</a>
                     </li>
                     <li class="MainMenu-item">
-                        <a href="#" class="MainMenu-link">Servicios</a>                    
+                        <a href="#" class="MainMenu-link icon-sphere">Servicios</a>                    
                     </li>                    
                     <li class="MainMenu-item">
                         
-                        <a rendered="#{!loginController.authenticated}" jsf:outcome="/pages/administrador/login/Create" class="MainMenu-link">Login</a>
+                        <a rendered="#{!loginController.authenticated}" jsf:outcome="/pages/administrador/login/Create" class="MainMenu-link icon-user">Login</a>
                         
                         
                         <form rendered="#{loginController.authenticated}"  jsf:id="logoutForm">
@@ -44,7 +47,7 @@
                        
                     </li>
                     <li class="MainMenu-item">
-                        <a jsf:outcome="/pages/administrador/usuarios/Create" class="MainMenu-link">Registrarse</a>
+                        <a jsf:outcome="/pages/administrador/usuarios/Create" class="MainMenu-link icon-profile">Registrarse</a>
                     </li>
                 </ul>
             </nav>	
@@ -75,12 +78,22 @@
                     <button type="submit" class="Footer-button">Enviar</button>
             </form>
             
+            <div class="Footer-External-Links">
+                <h3 class="Footer-External-title">Comparte en:</h3>
+                <a href="https://www.facebook.com/?_rdr=p" class="Footer-link-icons icon-facebook2"></a>
+                <a href="https://twitter.com/?lang=es" class="Footer-link-icons icon-twitter2"></a>
+            </div>
+                
             <div class="Footer-List">
                     <a href="#" class="Footer-link">Contáctenos</a>
                     <a href="#" class="Footer-link">Terminos y Condiciones</a>
                     <a href="#" class="Footer-link">Jardines afiliados</a>
             </div>    
+            
         </footer>
+        
+        <script src="#{request.contextPath}/resources/js/jquery.js"></script>	
+        <script src="#{request.contextPath}/resources/js/menu.js"></script>
         
     </h:body>
 </html>
