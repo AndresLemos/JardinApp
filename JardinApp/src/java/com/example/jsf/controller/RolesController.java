@@ -7,6 +7,7 @@ package com.example.jsf.controller;
 
 import com.example.jpa.entities.Roles;
 import com.example.jpa.sessions.RolesSession;
+import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -18,7 +19,7 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
-public class RolesController {    
+public class RolesController implements Serializable {    
     
     @EJB
     private RolesSession rolesSession;

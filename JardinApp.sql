@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-09-2015 a las 11:08:53
+-- Tiempo de generación: 16-09-2015 a las 11:53:43
 -- Versión del servidor: 5.5.43-0+deb8u1
 -- Versión de PHP: 5.6.7-1
 
@@ -1092,16 +1092,6 @@ INSERT INTO `Departamento` (`id_departamento`, `nombre_departamento`, `id_pais`)
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `LoginView`
---
-CREATE TABLE IF NOT EXISTS `LoginView` (
-`correo` varchar(15)
-,`contrasenia` varchar(200)
-,`id_rol` int(11)
-);
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `Pais`
 --
 
@@ -1362,19 +1352,18 @@ INSERT INTO `Pais` (`id_pais`, `nombre_pais`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Roles` (
-`id_rol` int(11) NOT NULL,
+  `id_rol` varchar(11) NOT NULL,
   `nombre_rol` varchar(13) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `Roles`
 --
 
 INSERT INTO `Roles` (`id_rol`, `nombre_rol`) VALUES
-(1, 'admin'),
-(2, 'profesor'),
-(3, 'padre'),
-(4, 'estudiante');
+('Admin', 'Admin'),
+('Padre', 'Padre'),
+('Profesor', 'Profesor');
 
 -- --------------------------------------------------------
 
@@ -1384,7 +1373,7 @@ INSERT INTO `Roles` (`id_rol`, `nombre_rol`) VALUES
 
 CREATE TABLE IF NOT EXISTS `tipos_documentos` (
 `id_tipos_documentos` int(11) NOT NULL,
-  `nombre_tipo_documento` varchar(23) NOT NULL
+  `nombre_tipo_documento` varchar(21) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
@@ -1392,9 +1381,9 @@ CREATE TABLE IF NOT EXISTS `tipos_documentos` (
 --
 
 INSERT INTO `tipos_documentos` (`id_tipos_documentos`, `nombre_tipo_documento`) VALUES
-(1, 'Cédula de Ciudadanía'),
-(2, 'Tarjeta de Identidad'),
-(3, 'Cédula de Extrangería'),
+(1, 'Cédula de ciudadanía'),
+(2, 'Cédula de Extranjería'),
+(3, 'Tarjeta de Identidad'),
 (4, 'Registro Civil');
 
 -- --------------------------------------------------------
@@ -1407,44 +1396,27 @@ CREATE TABLE IF NOT EXISTS `Usuarios` (
   `id_documento` varchar(15) NOT NULL,
   `primer_nombre` varchar(10) NOT NULL,
   `segundo_nombre` varchar(10) DEFAULT '',
-  `primer apellido` varchar(10) NOT NULL,
+  `primer_apellido` varchar(10) NOT NULL,
   `segundo_apellido` varchar(10) NOT NULL,
   `contrasenia` varchar(200) NOT NULL,
   `direccion` varchar(15) NOT NULL,
   `telefono` varchar(12) NOT NULL,
-  `celular` varchar(10) NOT NULL,
-  `correo` varchar(15) NOT NULL,
-  `tipo_documento` int(11) NOT NULL,
-  `titulo_profesional` varchar(45) DEFAULT NULL,
-  `id_ciudad` int(11) NOT NULL
+  `celular` varchar(15) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `titulo_profesional` varchar(50) DEFAULT NULL,
+  `id_tipos_documentos` int(11) NOT NULL,
+  `id_rol` varchar(11) NOT NULL,
+  `id_ciudad` int(11) NOT NULL,
+  `id_departamento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `Usuarios`
 --
 
-INSERT INTO `Usuarios` (`id_documento`, `primer_nombre`, `segundo_nombre`, `primer apellido`, `segundo_apellido`, `contrasenia`, `direccion`, `telefono`, `celular`, `correo`, `tipo_documento`, `titulo_profesional`, `id_ciudad`) VALUES
-('11223344', 'Camila', 'Andrea', 'Becerra', 'Perez', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'calle 23', '1234', '3111234', 'camila@gmail.co', 1, 'Tecnico en atencion a la primera infancia', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `Usuarios_has_Roles`
---
-
-CREATE TABLE IF NOT EXISTS `Usuarios_has_Roles` (
-  `id_usuarios` varchar(15) NOT NULL,
-  `id_rol` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `LoginView`
---
-DROP TABLE IF EXISTS `LoginView`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `LoginView` AS select `Usuarios`.`correo` AS `correo`,`Usuarios`.`contrasenia` AS `contrasenia`,`Roles`.`id_rol` AS `id_rol` from ((`Usuarios` join `Roles`) join `Usuarios_has_Roles`) where ((`Usuarios`.`id_documento` = `Usuarios_has_Roles`.`id_usuarios`) and (`Roles`.`id_rol` = `Usuarios_has_Roles`.`id_rol`));
+INSERT INTO `Usuarios` (`id_documento`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `contrasenia`, `direccion`, `telefono`, `celular`, `correo`, `titulo_profesional`, `id_tipos_documentos`, `id_rol`, `id_ciudad`, `id_departamento`) VALUES
+('1214', 'MAria', 'Antonieta', 'Rengifo', 'Sarimiento', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'Calle 25 # 25 -', '4458877', '3116258478', 'maria@gmail.com', 'sds', 1, 'Admin', 1, 5),
+('123456', 'Camilo', 'Andres', 'Arteaga', 'Bermudez', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'Calle 25', '123456', '132465', 'camilo@gmail.com', 'Tecnico', 1, 'Profesor', 1, 8);
 
 --
 -- Índices para tablas volcadas
@@ -1484,13 +1456,7 @@ ALTER TABLE `tipos_documentos`
 -- Indices de la tabla `Usuarios`
 --
 ALTER TABLE `Usuarios`
- ADD PRIMARY KEY (`id_documento`), ADD UNIQUE KEY `idUsuarios_UNIQUE` (`id_documento`), ADD KEY `fk_Usuarios_Ciudad1_idx` (`id_ciudad`), ADD KEY `tipo_documento` (`tipo_documento`);
-
---
--- Indices de la tabla `Usuarios_has_Roles`
---
-ALTER TABLE `Usuarios_has_Roles`
- ADD PRIMARY KEY (`id_usuarios`,`id_rol`), ADD KEY `fk_Usuarios_has_Roles_Roles1_idx` (`id_rol`), ADD KEY `fk_Usuarios_has_Roles_Usuarios1_idx` (`id_usuarios`);
+ ADD PRIMARY KEY (`id_documento`), ADD UNIQUE KEY `idUsuarios_UNIQUE` (`id_documento`), ADD KEY `fk_Usuarios_tipos_documentos1_idx` (`id_tipos_documentos`), ADD KEY `fk_Usuarios_Roles1_idx` (`id_rol`), ADD KEY `fk_Usuarios_Ciudad1_idx` (`id_ciudad`,`id_departamento`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -1501,11 +1467,6 @@ ALTER TABLE `Usuarios_has_Roles`
 --
 ALTER TABLE `Departamento`
 MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
---
--- AUTO_INCREMENT de la tabla `Roles`
---
-ALTER TABLE `Roles`
-MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `tipos_documentos`
 --
@@ -1531,15 +1492,9 @@ ADD CONSTRAINT `fk_Departamento_Pais1` FOREIGN KEY (`id_pais`) REFERENCES `Pais`
 -- Filtros para la tabla `Usuarios`
 --
 ALTER TABLE `Usuarios`
-ADD CONSTRAINT `fk_Usuarios_Ciudad1` FOREIGN KEY (`id_ciudad`) REFERENCES `Ciudad` (`id_ciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_Usuarios_Tipo_Documento` FOREIGN KEY (`tipo_documento`) REFERENCES `tipos_documentos` (`id_tipos_documentos`);
-
---
--- Filtros para la tabla `Usuarios_has_Roles`
---
-ALTER TABLE `Usuarios_has_Roles`
-ADD CONSTRAINT `fk_Usuarios_has_Roles_Roles1` FOREIGN KEY (`id_rol`) REFERENCES `Roles` (`id_rol`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_Usuarios_has_Roles_Usuarios1` FOREIGN KEY (`id_usuarios`) REFERENCES `Usuarios` (`id_documento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_Usuarios_Roles` FOREIGN KEY (`id_rol`) REFERENCES `Roles` (`id_rol`),
+ADD CONSTRAINT `fk_Usuarios_Ciudad1` FOREIGN KEY (`id_ciudad`, `id_departamento`) REFERENCES `Ciudad` (`id_ciudad`, `id_departamento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_Usuarios_tipos_documentos1` FOREIGN KEY (`id_tipos_documentos`) REFERENCES `tipos_documentos` (`id_tipos_documentos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -5,15 +5,17 @@
  */
 package com.example.jpa.entities;
 
+import com.example.jsf.controllers.util.JsfUtil;
 import java.io.Serializable;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -49,7 +51,7 @@ public class Usuario implements Serializable{
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_tipos_documentos", referencedColumnName = "id_tipos_documentos")
-    private TipoDocumento tipoDocumento;
+    private TipoDocumento idTipoDocumento;
     
     @Column(name="titulo_profesional")
     private String tituloProfesional;
@@ -63,11 +65,18 @@ public class Usuario implements Serializable{
     )
     private Ciudad idCiudad;
     
-    @ManyToMany
-    @JoinTable(name = "Usuarios_has_Roles",
-    joinColumns = @JoinColumn(name = "id_documento", referencedColumnName = "id_usuarios"),
-    inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "id_rol"))
-    private List<Roles> listRoles;
+    @ManyToOne
+    @JoinColumn(name = "id_rol",referencedColumnName="id_rol")       
+    private Roles idRoles;
+
+    public Roles getIdRoles() {
+        return idRoles;
+    }
+
+    public void setIdRoles(Roles idRoles) {
+        this.idRoles = idRoles;
+    }
+    
 
     public Usuario() {
     }
@@ -115,15 +124,20 @@ public class Usuario implements Serializable{
     public void setSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
     }
-
+  //Esta en emtity de leo  
+    public void setContrasenia(String password) {
+        try {
+            this.contrasenia = JsfUtil.generateDigest(password);
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+ 
     public String getContrasenia() {
         return contrasenia;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
+   
     public String getDireccion() {
         return direccion;
     }
@@ -157,11 +171,11 @@ public class Usuario implements Serializable{
     }
 
     public TipoDocumento getTipoDocumento() {
-        return tipoDocumento;
+        return idTipoDocumento;
     }
 
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+    public void setTipoDocumento(TipoDocumento idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
     }
 
     public String getTituloProfesional() {
@@ -180,11 +194,6 @@ public class Usuario implements Serializable{
         this.idCiudad = idCiudad;
     }
     
-    public List<Roles> getListRoles() {
-        return listRoles;
-    }
+   
     
-    public void setListUsuariosHasRoles(List<Roles> listRoleses) {
-        this.listRoles = listRoleses;        
-    }
 }

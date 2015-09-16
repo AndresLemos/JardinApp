@@ -16,14 +16,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tipos_documentos")
 public class TipoDocumento implements Serializable {
+    
     @Id
     @Column(name = "id_tipos_documentos")
     private int idTipo;
     
     @Column(name="nombre_tipo_documento")
-    private String tipoDocumento;
+    private String nombreTipoDocumento;
     
-    @OneToMany(cascade =CascadeType.ALL,mappedBy="tipoDocumento")
+    @OneToMany(cascade =CascadeType.ALL,mappedBy="idTipoDocumento")
     private List<Usuario> listUsuarios;
 
     public TipoDocumento() {
@@ -42,11 +43,11 @@ public class TipoDocumento implements Serializable {
     }
 
     public String getTipoDocumento() {
-        return tipoDocumento;
+        return nombreTipoDocumento;
     }
 
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+    public void setTipoDocumento(String nombreTipoDocumento) {
+        this.nombreTipoDocumento = nombreTipoDocumento;
     }
     
      public List<Usuario> getListTipoDocumento(){

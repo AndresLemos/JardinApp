@@ -10,7 +10,7 @@
 
         <ui:define name="content">
 
-            <h:panelGroup rendered="#{loginController.authenticated}">
+            <h:panelGroup rendered="#{!loginController.authenticated}">
                 <button type="button"
                         jsf:outcome="pages/paises/List"
                         class="button-table">
@@ -36,9 +36,7 @@
                         class="button-table">
                     Lista de Roles
                 </button>
-                <form jsf:id="logoutForm">
-                    <a jsf:action="#{loginController.logout}">Salir</a>
-                </form>
+                
             </h:panelGroup>
             <section class="Work">
                 <div class="Work-transparent">     

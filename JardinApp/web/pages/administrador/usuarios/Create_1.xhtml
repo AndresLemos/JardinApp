@@ -3,9 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -15,14 +13,13 @@
                 <section class="Work">
                 <div class="Work-transparent">
                 <h2 class="Work-title">Regístrarse</h2>
-                <h:form>
-                 
-                    
+                
+                <form class="Work-form" jsf:id="createUsuarioForm"> 
                     <select 
                            class="Work-formInput2"
                             size="1"
                             required="true" 
-                            jsf:value="#{usuarioController.idTipoDocumento}">                        
+                            jsf:value="#{usuarioController.selectedUsuario.tipoDocumento}">                        
                         <f:selectItem itemLabel="Tipo de documento"/>
                         <f:selectItems value="#{tipoDocumentoController.itemsTipoDocumento}" 
                                        var="tipoDocumento" 
@@ -65,7 +62,7 @@
                            class="Work-formInput2"
                             size="1"
                             required="true" 
-                            jsf:value="#{usuarioController.idRol}">                        
+                            jsf:value="#{usuarioController.selectedUsuario.idRoles}">                        
                         <f:selectItem itemLabel="Seleccione un Rol"/>
                         <f:selectItems value="#{rolesController.itemsRoles}" 
                                        var="rol" 
@@ -76,7 +73,7 @@
                      <input required="true" 
                             class="Work-formInput"
                            
-                       type="password" 
+                       type="text" 
                        placeholder="Contraseña" 
                        jsf:value="#{usuarioController.selectedUsuario.contrasenia}"/>
                      
@@ -100,18 +97,18 @@
                       
                        jsf:value="#{usuarioController.selectedUsuario.celular}"/>
                          
-                    <select jsf:value="#{usuarioController.idCiudad}"
-                        required="true"
-                        size="1">
-                    <f:selectItem itemLabel="Ciudad"/>
-                    <f:selectItems value="#{ciudadController.itemsCiudad}"
-                                   var="ciudad"
-                                   itemLabel="#{ciudad.nombreCiudad}"
-                                   itemValue="#{ciudad.idCiudad},#{ciudad.idDepartamento.idDepartamento}"/>
-                </select>
-                     
-                    
-                    
+                    <select 
+                           class="Work-formInput2"
+                            size="1"
+                            required="true" 
+                            jsf:value="#{usuarioController.selectedUsuario.idCiudad}">                        
+                        <f:selectItem itemLabel="Seleccione una ciudad"/>
+                        <f:selectItems value="#{ciudadController.itemsCiudad}" 
+                                       var="ciudad" 
+                                       itemLabel="#{ciudad.nombreCiudad}"
+                                       itemValue="#{ciudad.idCiudad},#{ciudad.idDepartamento.idDepartamento}"/>
+                        
+                    </select>    
                         <input type="email"
                        placeholder="Correo Electrónico"
                        required="true"
@@ -128,12 +125,7 @@
                         jsf:action="List">
                     Guardar
                 </button>
-                    
-                    
-               
-                  
-                </h:form>
-                <p:messages/>
+                </form>
                  </div>
             </section>  
             </ui:define>

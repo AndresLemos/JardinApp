@@ -24,7 +24,7 @@ public class Roles implements Serializable {
     @Column(name="nombre_rol")
     private String nombreRol;
     
-    @ManyToMany(mappedBy="listRoles")
+    @OneToMany(mappedBy="idRoles")
     private List<Usuario> listUsuario;
 
     public Roles() {
@@ -33,7 +33,7 @@ public class Roles implements Serializable {
     public Roles(int idRol) {
         this.idRol = idRol;
     }
-    
+
     
     public int getIdRol() {
         return idRol;

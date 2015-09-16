@@ -44,11 +44,12 @@ public class Ciudad implements Serializable {
     public Ciudad() {
     }
 
-    public Ciudad(Integer idCiudad, Departamentos idDepartamento, String nombreCiudad) {
+    public Ciudad(Integer idCiudad, Departamentos idDepartamento) {
         this.idCiudad = idCiudad;
-        this.idDepartamento=idDepartamento;
-        this.nombreCiudad=nombreCiudad;
-    }   
+        this.idDepartamento = idDepartamento;
+    }
+
+    
 
     public Integer getIdCiudad() {
         return idCiudad;

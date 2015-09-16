@@ -5,6 +5,7 @@
  */
 package com.example.jsf.controller;
 
+import java.io.Serializable;
 import java.security.Principal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpSession;
  */
 @ManagedBean
 @SessionScoped
-public class LoginController {
+public class LoginController implements Serializable {
 
    private static final Logger log = Logger.getLogger(LoginController.class.getName());
     private String username;
@@ -41,7 +42,7 @@ public class LoginController {
     }
 
     public String getPassword() {
-        return password;
+        return username;
     }
 
     public void setPassword(String password) {
@@ -70,15 +71,17 @@ public class LoginController {
     public String login() {
         try {
             //Login via the Servlet Context
+            System.out.println("En metodo Login");
+            
             getRequest().login(username, password);
 
             limpiar();
 
             //Redirigir a la página de portada
-            return "/login";
-        } catch (ServletException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o Contraseña Invalida", null));
             return "/index";
+        } catch (ServletException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o Contraseña Incorrecto", null));
+            return "/error";
         }
     }
 
